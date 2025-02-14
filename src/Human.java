@@ -117,7 +117,8 @@ public class Human {
     @Override
     public String toString() {
         String scheduleStr = Arrays.deepToString(schedule);
-        return String.format("Human{name='%s', surname='%s', year=%d, iq=%d, schedule=%s}", name, surname, year, iq, scheduleStr);
+        return String.format("{Human: name = '%s', surname = '%s', year = %d, iq = %d, schedule = %s}",
+                name, surname, year, iq, scheduleStr);
     }
 
     @Override

@@ -73,8 +73,9 @@ public class Pet {
 
     @Override
     public String toString() {
-        return String.format("%s{nickname='%s', age=%d, trickLevel=%d, habits=%s}",
-                species, nickname, age, trickLevel, Arrays.toString(habits));
+        String habitsStr = Arrays.toString(habits);
+        return String.format("{Pet: %s, nickname = '%s', age = %d, trickLevel = %d, habits = %s}",
+                species, nickname, age, trickLevel, habitsStr);
     }
 
     @Override
@@ -82,11 +83,9 @@ public class Pet {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Pet pet = (Pet) obj;
-        if (age != pet.age) return false;
-        if (trickLevel != pet.trickLevel) return false;
         if (!Objects.equals(species, pet.species)) return false;
-        if (!Objects.equals(nickname, pet.nickname)) return false;
-        return Arrays.equals(habits, pet.habits);
+        if (age != pet.age) return false;
+        return (!Objects.equals(nickname, pet.nickname));
     }
 
     @Override
@@ -94,8 +93,6 @@ public class Pet {
         int result = species.hashCode();
         result = 31 * result + nickname.hashCode();
         result = 31 * result + age;
-        result = 31 * result + trickLevel;
-        result = 31 * result + Arrays.hashCode(habits);
         return result;
     }
 }

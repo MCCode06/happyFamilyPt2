@@ -36,13 +36,14 @@ public class Family {
             newChildren[j] = children[i];
             j++;
         }
-        children = newChildren;
+        this.children = newChildren;
         return true;
     }
 
-    public int countChildren() {
+    public int countFamily() {
         return (2 + children.length);
     }
+
     // Getters
     public Human getMother() {
         return mother;
@@ -74,7 +75,7 @@ public class Family {
 
     @Override
     public String toString() {
-        return String.format("Family{mother=%s, father=%s, children=%s, pet=%s}",
+        return String.format("Family: { mother = %s,\nfather = %s, \nchildren = %s, \npet = %s}",
                 mother, father, Arrays.toString(children), pet);
     }
 
@@ -89,8 +90,7 @@ public class Family {
         Family familyObj = (Family) obj;
         if (!Objects.equals(mother, familyObj.mother)) return false;
         if (!Objects.equals(father, familyObj.father)) return false;
-        if (!Arrays.equals(children, familyObj.children)) return false;
-        return Objects.equals(pet, familyObj.pet);
+        return  (!Arrays.equals(children, familyObj.children));
     }
 
     @Override
@@ -101,9 +101,6 @@ public class Family {
         };
         if (father != null) {
             result = 31 * result + father.hashCode();
-        }
-        if (pet != null) {
-            result = 31 * result + pet.hashCode();
         }
        return (31 * result + Arrays.hashCode(children));
     }
