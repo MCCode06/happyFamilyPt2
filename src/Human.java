@@ -4,6 +4,15 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Human {
+
+    static {
+        System.out.println("Human class is loaded");
+    }
+
+    {
+        System.out.println("Human object is crated");
+    }
+
     private String name;
     private String surname;
     private int year;

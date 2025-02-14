@@ -2,6 +2,15 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet {
+
+    static {
+        System.out.println("Pet class is loaded");
+    }
+
+    {
+        System.out.println("Pet object is crated");
+    }
+
     private String species;
     private String nickname;
     private String[] habits;
@@ -85,7 +94,7 @@ public class Pet {
         Pet pet = (Pet) obj;
         if (!Objects.equals(species, pet.species)) return false;
         if (age != pet.age) return false;
-        return (!Objects.equals(nickname, pet.nickname));
+        return (Objects.equals(nickname, pet.nickname));
     }
 
     @Override

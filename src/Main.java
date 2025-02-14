@@ -18,7 +18,7 @@ public class Main {
         String[] habits = {"bark to the postman", "eat whatever you see", "broke the vase"};
         Pet pet = new Pet("Dog", "Qəzənfər", 13, 31, habits);
         String[] habits2 = {"bark to the postman", "eat whatever you see", "broke the window"};
-        Pet pet2 = new Pet("Dog", "Qəzənfər", 13, 31, habits2);
+        Pet pet2 = new Pet("Dog", "Namiq", 13, 69, habits2);
         family.setPet(pet);
 
         mother.setFamily(family);
@@ -31,13 +31,13 @@ public class Main {
 //        daughter.greetPet();
 //        son.describePet();
 //        son.feedPet(false);
+//        System.out.println();
 //
-//        family.deleteChild(family.getChildren(), 0);
-//        System.out.println("Seryozha died" + "\n");
+//        family.deleteChild(son);
 //        System.out.println(family);
 //        System.out.println("Family consists of " + family.countFamily()  + " people\n");
-
-        System.out.println(mother.equals(mother2));
-        System.out.println(pet.equals(pet2));
+//
+//        System.out.println(mother.equals(mother2));
+//        System.out.println(pet.equals(pet2));
     }
 }

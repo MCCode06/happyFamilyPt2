@@ -2,6 +2,15 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
+
+    static {
+        System.out.println("Family class is loaded");
+    }
+
+    {
+        System.out.println("Family object is crated");
+    }
+
     private Human mother;
     private Human father;
     private Human[] children;
@@ -36,8 +45,20 @@ public class Family {
             newChildren[j] = children[i];
             j++;
         }
+        System.out.println(children[index].getName() + " is dead");
         this.children = newChildren;
         return true;
+    }
+
+    public boolean deleteChild(Human child) {
+        int index = 0;
+        for (int i = 0; i < children.length; i++) {
+            if (children[i].equals(child)) {
+                index = i;
+            }
+        }
+
+        return deleteChild(children, index);
     }
 
     public int countFamily() {
@@ -90,7 +111,7 @@ public class Family {
         Family familyObj = (Family) obj;
         if (!Objects.equals(mother, familyObj.mother)) return false;
         if (!Objects.equals(father, familyObj.father)) return false;
-        return  (!Arrays.equals(children, familyObj.children));
+        return  (Arrays.equals(children, familyObj.children));
     }
 
     @Override
